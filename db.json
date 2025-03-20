@@ -1,8 +1,11 @@
-{    
-    "usuarios": [
-        
-    ],
-    "tarefas": [
-        
-    ]
+{
+  "usuarios": [
+    {
+      "id": "54bb",
+      "nome": "Sergio da Silva Mendes",
+      "email": "sergio.coti@gmail.com",
+      "senha": "@Admin123"
+    }
+  ],
+  "tarefas": []
 }
