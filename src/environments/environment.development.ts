@@ -1,4 +1,9 @@
+const baseUrl = 'https://9h5p5djj-5073.brs.devtunnels.ms'
+
 export const environment = {
-    apiUsuarios: 'http://localhost:3000/usuarios',
-    apiTarefas: 'http://localhost:3000/tarefas'
+    apiUsuarios: `${baseUrl}/api/usuarios`,
+    apiTarefas: `${baseUrl}/api/tarefas`
 };
+
+
+

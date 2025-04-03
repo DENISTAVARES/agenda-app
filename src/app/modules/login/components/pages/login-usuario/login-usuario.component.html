@@ -1,22 +1,61 @@
 <app-navbar/>
 
+
 <div class="d-flex justify-content-center align-items-center mt-3">
     <div class="card shadow p-4" style="width: 350px;">
         <div class="text-center mb-3">
             <img src="https://www.cotiinformatica.com.br/imagens/logo-coti-informatica.svg"/>
         </div>
-        <h4 class="text-center mb-3">Autenticação de Usuário</h4> 
+        <h4 class="text-center mb-3">Autenticação de Usuário</h4>
         <p class="text-center">Entre com suas credendiais para acessar a agenda de tarefas</p>
-        <form>
+       
+        <app-alert-message
+            [message]="mensagemErro"
+            type="error"
+        />
+
+
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+
             <div class="mb-3">
                 <label for="email" class="form-label">Email de acesso:</label>
-                <input type="email" class="form-control" id="email" placeholder="Digite seu email">
+                <input type="email" formControlName="email" class="form-control" id="email" placeholder="Digite seu email">
+           
+                <div *ngIf="form.get('email')?.touched" class="text-danger">
+                    <span *ngIf="form.get('email')?.hasError('required')">
+                        Por favor, informe o email do usuário.
+                    </span>
+                    <span *ngIf="form.get('email')?.hasError('email')">
+                        Email inválido, por favor verifique.
+                    </span>
+                </div>
+           
             </div>
             <div class="mb-3">
                 <label for="senha" class="form-label">Senha de acesso:</label>
-                <input type="password" class="form-control" id="senha" placeholder="Digite sua senha">
+                <input type="password" formControlName="senha" class="form-control" id="senha" placeholder="Digite sua senha">
+           
+                <div *ngIf="form.get('senha')?.touched" class="text-danger">
+                    <span *ngIf="form.get('senha')?.hasError('required')">
+                        Por favor, informe a senha do usuário.
+                    </span>
+                    <span *ngIf="form.get('senha')?.hasError('minlength')">
+                        Senha inválida, por favor preencha no mínimo 8 caracteres.
+                    </span>
+                </div>
+           
             </div>
-            <button type="submit" class="btn btn-primary w-100">Entrar</button>
+            <button [disabled]="form.invalid" type="submit" class="btn btn-primary w-100">
+                Entrar
+            </button>
+
+
         </form>
+
+
     </div>
 </div>
+
+
+

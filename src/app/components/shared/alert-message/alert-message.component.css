@@ -1,0 +1,26 @@
+
+/* Estilos gerais para alertas */
+.alert {
+    padding: 10px; /* Espaçamento interno */
+    margin: 10px 0; /* Margem superior e inferior */
+    border-radius: 5px; /* Cantos arredondados */
+    font-weight: bold; /* Texto em negrito */
+    text-align: center; /* Alinhamento central do texto */
+}
+
+
+/* Estilos para alertas de sucesso */
+.success {
+    background-color: #d4edda; /* Cor de fundo verde claro */
+    color: #155724; /* Cor do texto verde escuro */
+    border: 1px solid #c3e6cb; /* Borda verde suave */
+}
+
+
+/* Estilos para alertas de erro */
+.error {
+    background-color: #f8d7da; /* Cor de fundo vermelho claro */
+    color: #721c24; /* Cor do texto vermelho escuro */
+    border: 1px solid #f5c6cb; /* Borda vermelha suave */
+}
+

@@ -1,0 +1,55 @@
+<app-navbar />
+
+
+<div class="container mt-3">
+    <div class="card shadow p-4">
+
+
+        <h4>Cadastro de Tarefas</h4>
+
+
+        <hr />
+
+
+        <form>
+
+
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label for="nome" class="form-label">Nome</label>
+                    <input type="text" class="form-control" id="nome" required>
+                </div>
+                <div class="col-md-3">
+                    <label for="data" class="form-label">Data</label>
+                    <input type="date" class="form-control" id="data" required>
+                </div>
+                <div class="col-md-3">
+                    <label for="prioridade" class="form-label">Prioridade</label>
+                    <select class="form-select" id="prioridade" required>
+                        <option value="" selected disabled>Selecione...</option>
+                        <option value="baixa">Baixa</option>
+                        <option value="média">Média</option>
+                        <option value="alta">Alta</option>
+                    </select>
+                </div>
+            </div>
+
+
+            <div class="row mb-3">
+                <div class="col-md-12">
+                    <label for="descricao" class="form-label">Descrição</label>
+                    <textarea class="form-control" id="descricao" rows="3" required></textarea>
+                </div>
+            </div>
+
+
+            <div class="row mb-3">
+                <div class="col-md-12">
+                    <button type="submit" class="btn btn-primary">Realizar Cadastro</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+

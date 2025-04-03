@@ -1,85 +1,125 @@
 <app-navbar/>
 
+
 <div class="d-flex justify-content-center align-items-center mt-3">
     <div class="card shadow p-4" style="width: 350px;">
         <h4 class="text-center mb-3">Cadastro de Usuário</h4>
 
+
+        <app-alert-message
+            [message]="mensagemSucesso"
+            type="success"
+        />
+
+
+        <app-alert-message
+            [message]="mensagemErro"
+            type="error"
+        />
+
+
         <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
 
             <div class="mb-3">
                 <label for="nome" class="form-label">Nome do usuário:</label>
                 <input type="text" formControlName="nome" class="form-control" id="nome" placeholder="Digite seu nome">
-            
+           
                 <div *ngIf="form.get('nome')?.touched" class="text-danger">
+
+
                     <span *ngIf="form.get('nome')?.hasError('required')">
                         Por favor, informe o nome do usuário.
                     </span>
 
+
                     <span *ngIf="form.get('nome')?.hasError('minlength')">
-                        Por favor, informe o nome do usuário com pelo menos 8 caracteres.
+                        Por favor, informe o nome com pelo menos 8 caracteres.
                     </span>
+
 
                     <span *ngIf="form.get('nome')?.hasError('maxlength')">
-                        Por favor, informe o nome do usuário com no máximo 100 caracteres.
+                        Por favor, informe o nome com no máximo 100 caracteres.
                     </span>
-                </div>
-            </div>
 
-            
+
+                </div>
+           
+            </div>
             <div class="mb-3">
                 <label for="email" class="form-label">Email de acesso:</label>
                 <input type="email" formControlName="email" class="form-control" id="email" placeholder="Digite seu email">
-
+           
                 <div *ngIf="form.get('email')?.touched" class="text-danger">
+
+
                     <span *ngIf="form.get('email')?.hasError('required')">
-                        Por favor, informe o email.
+                        Por favor, informe o email do usuário.
                     </span>
+
 
                     <span *ngIf="form.get('email')?.hasError('email')">
                         Por favor, informe um endereço de email válido.
                     </span>
-                    
+
+
                 </div>
 
-            </div>
 
+            </div>
             <div class="mb-3">
                 <label for="senha" class="form-label">Senha de acesso:</label>
                 <input type="password" formControlName="senha" class="form-control" id="senha" placeholder="Digite sua senha">
-
+           
                 <div *ngIf="form.get('senha')?.touched" class="text-danger">
+
+
                     <span *ngIf="form.get('senha')?.hasError('required')">
                         Por favor, informe a senha do usuário.
                     </span>
+
 
                     <span *ngIf="form.get('senha')?.hasError('pattern')">
                         Por favor, informe a senha com pelo menos uma letra minúscula,
                         uma letra maiúscula, um número, um caractere especial
                         e no mínimo 8 caracteres.
                     </span>
-                    
-                </div>
-            </div>
 
+
+                </div>
+
+
+            </div>
             <div class="mb-3">
                 <label for="confirmarSenha" class="form-label">Confirme sua Senha:</label>
                 <input type="password" formControlName="senhaConfirmacao" class="form-control" id="confirmarSenha" placeholder="Confirme sua senha">
-
+           
                 <div *ngIf="form.get('senhaConfirmacao')?.touched" class="text-danger">
-                    <span *ngIf="form.get('senhaConfirmacao')?.hasError('required')">
-                        Por favor, informe a senha do usuário.
-                    </span>                    
-                    <span *ngIf="form.get('senhaConfirmacao')?.hasError('confirmarSenha')">
-                        Senhas não conferem, por favor verifique
-                    </span>                    
-                </div>
 
+
+                    <span *ngIf="form.get('senhaConfirmacao')?.hasError('required')">
+                        Por favor, confirme a senha do usuário.
+                    </span>
+
+
+                    <span *ngIf="form.get('senhaConfirmacao')?.hasError('confirmarSenha')">
+                        Senhas não conferem, por favor verifique.
+                    </span>
+
+
+                </div>
+           
             </div>
             <button [disabled]="form.invalid" type="submit" class="btn btn-primary w-100">
                 Realizar Cadastro
             </button>
 
+
         </form>
+
 
     </div>
 </div>
+
+
+

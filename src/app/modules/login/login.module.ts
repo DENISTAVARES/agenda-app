@@ -7,6 +7,7 @@ import { RouterLink } from "@angular/router";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { LoginRoutingModule } from "./login-routing.module";
 import { NavbarComponent } from "./components/shared/navbar/navbar.component";
+import { AlertMessageComponent } from "../../components/shared/alert-message/alert-message.component";
 
 
 @NgModule({
@@ -21,9 +22,11 @@ import { NavbarComponent } from "./components/shared/navbar/navbar.component";
         RouterLink,
         FormsModule,
         ReactiveFormsModule,
+        AlertMessageComponent,
         LoginRoutingModule //rotas do módulo
     ]
 })
 export class LoginModule {}
+
 
 
