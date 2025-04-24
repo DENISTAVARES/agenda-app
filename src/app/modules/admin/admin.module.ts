@@ -8,6 +8,8 @@ import { RouterLink } from "@angular/router";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { AdminRoutingModule } from "./admin-routing.module";
 import { NavbarComponent } from "./components/shared/navbar/navbar.component";
+import { ChartModule } from "angular-highcharts";
+import { AlertMessageComponent } from "../../components/shared/alert-message/alert-message.component";
 
 
 @NgModule({
@@ -16,7 +18,7 @@ import { NavbarComponent } from "./components/shared/navbar/navbar.component";
         DashboardComponent,
         CadastroTarefasComponent,
         ConsultaTarefasComponent,
-        EdicaoTarefasComponent, 
+        EdicaoTarefasComponent,
         NavbarComponent
     ],
     /* Configurando as bibliotecas utilizadas no módulo */
@@ -25,9 +27,12 @@ import { NavbarComponent } from "./components/shared/navbar/navbar.component";
         RouterLink,
         FormsModule,
         ReactiveFormsModule,
-        AdminRoutingModule
+        AdminRoutingModule,
+        ChartModule,
+        AlertMessageComponent
     ]
 })
 export class AdminModule { }
+
 
 

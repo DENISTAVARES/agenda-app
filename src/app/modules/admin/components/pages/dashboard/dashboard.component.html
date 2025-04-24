@@ -6,10 +6,33 @@
 
 
         <h4>Dashboard de Tarefas</h4>
-        <hr />        
+        <hr />      
+       
+        <div class="row">
+            <div class="col-md-9">
+                <div [chart]="grafico"></div>
+            </div>
+            <div class="col-md-3">
+                <table class="table table-sm">
+                    <thead>
+                        <tr>
+                            <th>Prioridade</th>
+                            <th>Quantidade</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of dados">
+                            <td>{{ item.prioridade | uppercase }}</td>
+                            <td>{{ item.quantidade }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
 
 
     </div>
 </div>
+
 
 

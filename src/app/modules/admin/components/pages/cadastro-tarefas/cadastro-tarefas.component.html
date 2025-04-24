@@ -11,45 +11,67 @@
         <hr />
 
 
-        <form>
+        <app-alert-message [message]="msg"/>
+
+
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
 
 
             <div class="row mb-3">
                 <div class="col-md-6">
                     <label for="nome" class="form-label">Nome</label>
-                    <input type="text" class="form-control" id="nome" required>
+                    <input type="text" formControlName="nome" class="form-control" id="nome" required>
+
+
+                    <div *ngIf="form.get('nome')?.touched" class="text-danger">
+                        <span *ngIf="form.get('nome')?.hasError('required')">
+                            Por favor, informe o nome da tarefa.
+                        </span>
+                    </div>
+
+
                 </div>
                 <div class="col-md-3">
                     <label for="data" class="form-label">Data</label>
-                    <input type="date" class="form-control" id="data" required>
+                    <input type="date" formControlName="data" class="form-control" id="data" required>
+
+
+                    <div *ngIf="form.get('data')?.touched" class="text-danger">
+                        <span *ngIf="form.get('data')?.hasError('required')">
+                            Por favor, selecione a data da tarefa.
+                        </span>
+                    </div>
+
+
                 </div>
                 <div class="col-md-3">
                     <label for="prioridade" class="form-label">Prioridade</label>
-                    <select class="form-select" id="prioridade" required>
-                        <option value="" selected disabled>Selecione...</option>
-                        <option value="baixa">Baixa</option>
-                        <option value="média">Média</option>
-                        <option value="alta">Alta</option>
+                    <select class="form-select" formControlName="prioridade" id="prioridade" required>
+                        <option value="">Escolha uma opção</option>
+                        <option value="Baixa">Baixa</option>
+                        <option value="Média">Média</option>
+                        <option value="Alta">Alta</option>
                     </select>
+
+
+                    <div *ngIf="form.get('prioridade')?.touched" class="text-danger">
+                        <span *ngIf="form.get('prioridade')?.hasError('required')">
+                            Por favor, selecione a prioridade da tarefa.
+                        </span>
+                    </div>
+
+
                 </div>
             </div>
 
 
             <div class="row mb-3">
                 <div class="col-md-12">
-                    <label for="descricao" class="form-label">Descrição</label>
-                    <textarea class="form-control" id="descricao" rows="3" required></textarea>
-                </div>
-            </div>
-
-
-            <div class="row mb-3">
-                <div class="col-md-12">
-                    <button type="submit" class="btn btn-primary">Realizar Cadastro</button>
+                    <button type="submit" class="btn btn-primary" [disabled]="form.invalid">
+                        Realizar Cadastro
+                    </button>
                 </div>
             </div>
         </form>
     </div>
 </div>
-
-
